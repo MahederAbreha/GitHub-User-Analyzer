@@ -1,14 +1,22 @@
 import React, { useState } from 'react';
+import Navigate from "react-router-dom"; 
 const Welcome = () => {
     const [userExists, setUserExists] = useState();
-    const [state, setState] = useState();
-    const baseUrl = 'http://localhost:3000/users';
    let user = {name: ''};
 
     const handleSubmit = (e) => {
         e.preventDefault();
         setUserExists(true)
     }
+    if (userExists) {
+        return (
+            <Navigate to = {{
+              pathname: "/user",
+            }}
+            />
+        );
+          }
+
 
   return (
     <div>
@@ -20,7 +28,5 @@ const Welcome = () => {
     </div>
   );
 };
-
-
 
 export default Welcome;
